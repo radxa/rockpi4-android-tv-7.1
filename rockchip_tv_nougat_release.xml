@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+<remote fetch="https://android.googlesource.com/" name="aosp"/>
+<remote fetch="https://github.com/rockchip-android/" name="rk"/>
+<remote fetch="https://github.com/radxa/" name="radxa"/>
+
+<default remote="aosp" revision="refs/tags/android-7.1.2_r6" sync-c="true" sync-j="4"/>
+
+<include name="google.xml" />
+<include name="rockchip_box_nougat_release-v1.2.1.xml" />
+<include name="rockchip_radxa_vendor.xml" />
+
+</manifest>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+<!-- form rockchip -->
+<project name="RKTools" path="RKTools" remote="radxa" revision="94c48a657f8978061336369b00c78c474135e241" upstream="rk3399-box-7.1"/>
+<project groups="pdk" remote="radxa" name="bootable-recovery" path="bootable/recovery" revision="7778c22191126f3948c4fdffd1d4edd3bf0648e7" upstream="rk3399-box-7.1"/>
+<project groups="pdk,tradefed" remote="radxa" name="build" path="build" revision="cd27fa47410a101886fae0cc208f3a38f3c143ec" upstream="rk3399-box-7.1">
+<copyfile dest="Makefile" src="core/root.mk"/>
+</project>
+<project name="device-rockchip-rk3399" path="device/rockchip/rk3399" remote="radxa" revision="70f27b221410ce8e0f8f616ca3add1706d1b06b5" upstream="rk3399-box-7.1">
+<copyfile dest="buildspec.mk" src="buildspec-rk3399-box.mk"/>
+<copyfile dest="build.sh" src="build-rk3399-box.sh"/>
+<copyfile dest="javaenv.sh" src="javaenv.sh"/>
+</project>
+<project name="device-rockchip-common" path="device/rockchip/common" remote="radxa" revision="b06d326e327deaf0f672e938572b75b9ea0d0308" upstream="rk3399-box-7.1">
+<copyfile dest=".classpath" src=".classpath"/>
+<copyfile dest="mkimage.sh" src="mkimage.sh"/>
+</project>
+<project name="vendor-rockchip-common" path="vendor/rockchip/common" remote="radxa" revision="066ededea9fffba47989349f911c296a0852aa21" upstream="rk3399-box-7.1"/>
+
+<project groups="pdk-cw-fs,pdk-fs" remote="radxa" name="frameworks-base" path="frameworks/base" revision="bd783b4e8279762e1650ff038b4590784cf30254" upstream="rk3399-box-7.1"/>
+<project groups="pdk" remote="radxa" name="frameworks-native" path="frameworks/native" revision="8cf141039b23c90a783e27b74799a1997bf469a8" upstream="rk3399-box-7.1"/>
+<project name="external-wlan_loader" path="external/wlan_loader" remote="radxa" revision="e2322f583b1697413807868144732753c3928081" upstream="rk3399-box-7.1"/>
+<project name="u-boot" path="u-boot" remote="radxa" revision="c27cae18bf000a65f3cace4aa62952cc76d4e0d3" upstream="stable-4.4-android"/>
+<project name="kernel" path="kernel" remote="radxa" revision="519d009f768bf761a2da982fbf497c29dce2f615" upstream="rk3399-box-7.1"/>
+
+<!-- add -->
+<project name="rkbin"  path="rkbin"  remote="radxa" revision="21756f5b5a108fb9d4fd1ffcdb819474892d937f" upstream="rk3399-box-7.1"/>
+
+</manifest>

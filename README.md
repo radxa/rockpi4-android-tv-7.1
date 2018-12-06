@@ -1,5 +1,3 @@
-# Build AOSP for ROCK960
-
 ## Build environment setup
 
 Recommend build host is Ubuntu 16.04 64bit, for other hosts, refer official Android documents [Establishing a Build Environment](https://source.android.com/setup/build/initializing).
@@ -52,12 +50,12 @@ $ export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
 
 ```shell
 $ cd u-boot
-$ make rk3399_box_defconfig
-$ ./mkv8.sh
+$ make rock-pi-4b-rk3399_defconfig
+$ ./mk-uboot.sh
 $ cd ..
 ```
 
-The generated images are **rk3399_loader_v_xxx.bin** and **uboot.img**
+The generated images are **rk3399_loader_v_xxx.bin** , **idbloader.img** and **uboot.img**
 
 ## Building kernel
 
@@ -83,56 +81,76 @@ $ make -j$(nproc)
 
 It takes a long time, take a break and wait...
 
-
-## Generate update images
-
+## Generate  images
 ```shell
 $ ln -s RKTools/linux/Linux_Pack_Firmware/rockdev/ rockdev
 $ ./mkimage.sh
 ```
+The generated images under rockdev/Image are
 
-The generated images under rockdev/Image-rk3399_box are
+    ├── boot.img
+    ├── idbloader.img
+    ├── kernel.img
+    ├── MiniLoaderAll.bin
+    ├── misc.img
+    ├── parameter.txt
+    ├── pcba_small_misc.img
+    ├── pcba_whole_misc.img
+    ├── recovery.img
+    ├── resource.img
+    ├── system.img
+    ├── trust.img
+    └── uboot.img
 
-    boot.img    MiniLoaderAll.bin  parameter.txt        pcba_whole_misc.img  resource.img  trust.img
-    kernel.img  misc.img           pcba_small_misc.img  recovery.img         system.img    uboot.img
-
-They can be flashed with fastboot or Rockchip upgrade_tool.
-
-Pack all partitions into one image.
-
-```shell
+```bash
 $ cd rockdev
-$ ln -s Image-rk3399_box Image
-$ ./mkupdate.sh
+$ ./android-gpt.sh
 ```
+```
+IMAGE_LENGTH:3936291
+idbloader       64              16383           8.000000       MB
+Warning: The resulting partition is not properly aligned for best performance.
+uboot           16384           24575           4.000000       MB
+trust           24576           32767           4.000000       MB
+misc            32768           40959           4.000000       MB
+resource        40960           73727           16.000000      MB
+kernel          73728           122879          24.000000      MB
+boot            122880          188415          32.000000      MB
+recovery        188416          253951          32.000000      MB
+backup          253952          483327          112.000000     MB
+cache           483328          745471          128.000000     MB
+system          745472          3891199         1536.000000    MB
+metadata        3891200         3923967         16.000000      MB
+baseparamer     3923968         3932159         4.000000       MB
+userdata        3932160         3932159         0.000000       MB
+```
+The images under rockdev/Image are `gpt.img`
 
-    Start to make update.img...
-    Android Firmware Package Tool v1.62
-    ------ PACKAGE ------
-    Add file: ./package-file
-    Add file: ./Image/MiniLoaderAll.bin
-    Add file: ./Image/parameter.txt
-    Add file: ./Image/trust.img
-    Add file: ./Image/uboot.img
-    Add file: ./Image/misc.img
-    Add file: ./Image/resource.img
-    Add file: ./Image/kernel.img
-    Add file: ./Image/boot.img
-    Add file: ./Image/recovery.img
-    Add file: ./Image/system.img
-    Add CRC...
-    Make firmware OK!
-    ------ OK ------
-    ********RKImageMaker ver 1.63********
-    Generating new image, please wait...
-    Writing head info...
-    Writing boot file...
-    Writing firmware...
-    Generating MD5 data...
-    MD5 data generated successfully!
-    New image generated successfully!
-    Making update.img OK.
+    ├── boot.img
+    ├── gpt.img
+    ├── idbloader.img
+    ├── kernel.img
+    ├── ......
+    └── uboot.img
 
-**update.img** is the packed image with all partitions.
+Installation
+you can use `tf card` or `emmc module`
+```bash
+$ sudo umount /dev/<Your device>*
+# mac os maybe not supprot progress
+$ sudo dd if=Image/gpt.img of=/dev/<Your device> bs=4M status=progress
+$ sync
+```
+through rockusb
+```bash
+# on device u-boot
+# mmc 0 is your emmc module
+# mmc 1 is your tf card
+$ rockusb 0 mmc 1
 
-Proceed to [Installation Instructions](../installation)
+# on pc
+$ rkdeveloptool wl 0 Image/gpt.img
+```
+[More](https://wiki.radxa.com/Rockpi4/install)
+
+**There may be some performance loss when using tf card**

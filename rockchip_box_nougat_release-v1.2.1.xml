@@ -50,7 +50,6 @@
 <project groups="pdk" remote="rk" name="system-sepolicy" path="system/sepolicy" revision="38ee595100c26946fd918a4b3bbdea97d6aa8e9c" upstream="rk3399-box-7.1"/>
 <project groups="pdk" remote="rk" name="system-vold" path="system/vold" revision="971f19a4134ff58b4f9b47755f5ebc25e93466fd" upstream="rk3399-box-7.1"/>
 
-<project name="hardware-rockchip-audio" path="hardware/rockchip/audio" remote="rk" revision="1674f1b749b74a6d43771aa666d95ef302a29408" upstream="rk3399-box-7.1"/>
 <project name="hardware-rockchip-camera" path="hardware/rockchip/camera" remote="rk" revision="1fb5e9928af1770040209649e5e081bfc109bd4d" upstream="rk3399-box-7.1"/>
 <project name="hardware-rockchip-hwcomposer" path="hardware/rockchip/hwcomposer" remote="rk" revision="6b57f0476865de711b2ed84708d44dfde8af4dda" upstream="rk3399-box-7.1"/>
 <project name="hardware-rockchip-jpeghw" path="hardware/rockchip/jpeghw" remote="rk" revision="d9a9a6e0971aa63a1ab66e1360bb74dd33b99275" upstream="rk3399-box-7.1"/>

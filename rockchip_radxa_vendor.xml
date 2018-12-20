@@ -26,5 +26,6 @@
 
 <!-- add -->
 <project name="rkbin"  path="rkbin"  remote="radxa" revision="21756f5b5a108fb9d4fd1ffcdb819474892d937f" upstream="rk3399-box-7.1"/>
+<project name="hardware-rockchip-audio" path="hardware/rockchip/audio" remote="radxa" revision="da9fe6501591e2b295355083a3d3f82cfd9f605a" upstream="rk3399-box-7.1"/>
 
 </manifest>

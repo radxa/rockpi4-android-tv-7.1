@@ -16,7 +16,7 @@
 <copyfile dest=".classpath" src=".classpath"/>
 <copyfile dest="mkimage.sh" src="mkimage.sh"/>
 </project>
-<project name="vendor-rockchip-common" path="vendor/rockchip/common" remote="radxa" revision="c26b5289954c1966180fc112dd173f687cb3f92e" upstream="rk3399-box-7.1"/>
+<project name="vendor-rockchip-common" path="vendor/rockchip/common" remote="radxa" revision="2f9a0afcbd4528c73012a6d429aa4af80c610b80" upstream="rk3399-box-7.1"/>
 
 <project groups="pdk-cw-fs,pdk-fs" remote="radxa" name="frameworks-base" path="frameworks/base" revision="bd783b4e8279762e1650ff038b4590784cf30254" upstream="rk3399-box-7.1"/>
 <project groups="pdk" remote="radxa" name="frameworks-native" path="frameworks/native" revision="8cf141039b23c90a783e27b74799a1997bf469a8" upstream="rk3399-box-7.1"/>

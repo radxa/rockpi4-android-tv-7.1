@@ -147,6 +147,7 @@ node('master') {
 					tag=${RADXA_RELEASE_TIME}_${commitId}
 
 	                github-release release \
+	                  --target "master" \
 	                  --tag "${tag}" \
 	                  --name "${tag}" \
 	                  --description "${RADXA_CHANGE}" \

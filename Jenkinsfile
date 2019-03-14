@@ -9,7 +9,7 @@ def repoSync(fullClean, fullReset, manifestRepo, manifestRev, manifestPath){
 } 
 //#################################
 
-node('master') {
+node('jolin') {
 	stage('Environment'){
 		def dateFormat = new SimpleDateFormat("yyyyMMdd_HHmm")
         def date = new Date()
@@ -110,11 +110,14 @@ node('master') {
 				    hardware_up="$hardware"
 				    release_name="${hardware_up}-nougat-${RADXA_RELEASE_TIME}_${commitId}"
 				    
-				    mv rockdev/update.img    rockdev/${release_name}-rkupdate.img
-				    mv rockdev/Image/gpt.img rockdev/Image/${release_name}-gpt.img
+				    mv rockdev/update.img    ${release_name}-rkupdate.img
+				    mv rockdev/Image/gpt.img ${release_name}-gpt.img
+
+				    md5sum ${release_name}-rkupdate.img >> $ROCKS_RELEASE_DIR/md5
+				    md5sum ${release_name}-gpt.img >> $ROCKS_RELEASE_DIR/md5
 				    
-				    tar czvf $RADXA_RELEASE_DIR/${release_name}-rkupdate.tgz rockdev/${release_name}-rkupdate.img
-				    tar czvf $RADXA_RELEASE_DIR/${release_name}-gpt.tgz      rockdev/Image/${release_name}-gpt.img
+				    zip $ROCKS_RELEASE_DIR/${release_name}-rkupdate.zip ${release_name}-rkupdate.img
+				    zip $ROCKS_RELEASE_DIR/${release_name}-gpt.zip ${release_name}-gpt.img
 				    
 				    cp -f rockdev/Image/resource.img  $RADXA_RELEASE_DIR/resource_$hardware.img
 				    cp -f rockdev/Image/idbloader.img $RADXA_RELEASE_DIR
@@ -134,7 +137,9 @@ node('master') {
 					def entries = github.items
 				    for (int i = 0; i < entries.length; i++) {
 				        def entry = entries[i]
-				        changeNote += (i + 1) + ". " + "${entry.msg}" + "\n"
+				        if(entry.comment.contains("### RELEASE_NOTE")){
+							changeNote += "${entry.comment}"
+				        }
 				    }
 				}
 				env.RADXA_CHANGE = changeNote
@@ -157,7 +162,12 @@ node('master') {
 	                  --name "manifest" \
 	                  --file "manifest.xml"
 
-					for file in $RADXA_RELEASE_DIR/*.tgz; do
+	                github-release upload \
+	                  --tag "${tag}" \
+	                  --name "md5sum" \
+	                  --file "$ROCKS_RELEASE_DIR/md5"
+
+					for file in $RADXA_RELEASE_DIR/*.zip; do
 		                github-release upload \
 		                    --tag "${tag}" \
 		                    --name "$(basename "$file")" \

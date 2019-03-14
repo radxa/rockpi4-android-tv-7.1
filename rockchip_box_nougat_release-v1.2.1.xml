@@ -69,6 +69,6 @@
 <project name="rkst" path="rkst" remote="rk" revision="c264f23734649fdb83d983bea7bcf11612651926" upstream="rk3399-box-7.1"/>
 
 <!-- add -->
-<project name="open-gapps" path="vendor/opengapps" remote="rk" revision="fbfc18444aa2391798959f5b71daa7a8a862d434" upstream="rk3399-box-7.1"/>
+<project name="open-gapps" path="vendor/opengapps" remote="rk" revision="2a63d53b183cf3edafc62e2a81e901171e00adc6" upstream="rk3399-box-7.1"/>
 <project name="gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu"  path="prebuilts/gcc/linux-x86/aarch64/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu"  remote="rk" revision="f96f76d6be89a6e28d4dac1f233f9aca9921f69b" upstream="rk3399-box-7.1"/>
 </manifest>

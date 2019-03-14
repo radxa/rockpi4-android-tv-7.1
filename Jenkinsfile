@@ -77,7 +77,6 @@ node('jolin') {
 				lunch "$RADXA_LUNCH"-userdebug
 				make -j8
 
-				prebuilts/sdk/tools/jack-admin kill-server
 			'''
 		}
 		stage('make image') {
@@ -113,11 +112,11 @@ node('jolin') {
 				    mv rockdev/update.img    ${release_name}-rkupdate.img
 				    mv rockdev/Image/gpt.img ${release_name}-gpt.img
 
-				    md5sum ${release_name}-rkupdate.img >> $ROCKS_RELEASE_DIR/md5
-				    md5sum ${release_name}-gpt.img >> $ROCKS_RELEASE_DIR/md5
+				    md5sum ${release_name}-rkupdate.img >> $RADXA_RELEASE_DIR/md5
+				    md5sum ${release_name}-gpt.img >> $RADXA_RELEASE_DIR/md5
 				    
-				    zip $ROCKS_RELEASE_DIR/${release_name}-rkupdate.zip ${release_name}-rkupdate.img
-				    zip $ROCKS_RELEASE_DIR/${release_name}-gpt.zip ${release_name}-gpt.img
+				    zip $RADXA_RELEASE_DIR/${release_name}-rkupdate.zip ${release_name}-rkupdate.img
+				    zip $RADXA_RELEASE_DIR/${release_name}-gpt.zip ${release_name}-gpt.img
 				    
 				    cp -f rockdev/Image/resource.img  $RADXA_RELEASE_DIR/resource_$hardware.img
 				    cp -f rockdev/Image/idbloader.img $RADXA_RELEASE_DIR
@@ -165,7 +164,7 @@ node('jolin') {
 	                github-release upload \
 	                  --tag "${tag}" \
 	                  --name "md5sum" \
-	                  --file "$ROCKS_RELEASE_DIR/md5"
+	                  --file "$RADXA_RELEASE_DIR/md5"
 
 					for file in $RADXA_RELEASE_DIR/*.zip; do
 		                github-release upload \

@@ -43,12 +43,10 @@
 <project groups="pdk-cw-fs,pdk-fs" remote="rk" name="packages-providers-MediaProvider" path="packages/providers/MediaProvider" revision="d1666cffe4623d38dc37d6f0cb8fe55995f46371" upstream="rk3399-box-7.1"/>
 <project groups="pdk-cw-fs,pdk-fs" remote="rk" name="packages-services-Telephony" path="packages/services/Telephony" revision="eb81fc9902494b0b7aa22298bbed984aa17e9df1" upstream="rk3399-box-7.1"/>
 <project groups="pdk-fs" remote="rk" name="prebuilts-deqp" path="prebuilts/deqp" revision="f15e7c74ca66599a81eea672bc86e742be620142" upstream="rk3399-box-7.1"/>
-<project groups="pdk" remote="rk" name="system-bt" path="system/bt" revision="e9db34d9051b392965a7b891026bc94e2a30d73a" upstream="rk3399-box-7.1"/>
 <project groups="pdk" remote="rk" name="system-core" path="system/core" revision="ab5f1d24b072e36ddcf02439303050c501d9dc5b" upstream="rk3399-box-7.1"/>
 <project groups="pdk" remote="rk" name="system-extras" path="system/extras" revision="4c9d2ea431114953d98e631eed651c8f1bd06bac" upstream="rk3399-box-7.1"/>
 <project groups="pdk" remote="rk" name="system-netd" path="system/netd" revision="1d179c056623c5960f4c824128465901c9e4b01f" upstream="rk3399-box-7.1"/>
 <project groups="pdk" remote="rk" name="system-sepolicy" path="system/sepolicy" revision="38ee595100c26946fd918a4b3bbdea97d6aa8e9c" upstream="rk3399-box-7.1"/>
-<project groups="pdk" remote="rk" name="system-vold" path="system/vold" revision="971f19a4134ff58b4f9b47755f5ebc25e93466fd" upstream="rk3399-box-7.1"/>
 
 <project name="hardware-rockchip-camera" path="hardware/rockchip/camera" remote="rk" revision="1fb5e9928af1770040209649e5e081bfc109bd4d" upstream="rk3399-box-7.1"/>
 <project name="hardware-rockchip-hwcomposer" path="hardware/rockchip/hwcomposer" remote="rk" revision="6b57f0476865de711b2ed84708d44dfde8af4dda" upstream="rk3399-box-7.1"/>

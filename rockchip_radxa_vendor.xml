@@ -7,18 +7,18 @@
 <project groups="pdk,tradefed" remote="radxa" name="build" path="build" revision="cd27fa47410a101886fae0cc208f3a38f3c143ec" upstream="rk3399-box-7.1">
 <copyfile dest="Makefile" src="core/root.mk"/>
 </project>
-<project name="device-rockchip-rk3399" path="device/rockchip/rk3399" remote="radxa" revision="e0b9e85ad6f1b2ad0c725ed95ee7eaee2302326a" upstream="rk3399-box-7.1">
+<project name="device-rockchip-rk3399" path="device/rockchip/rk3399" remote="radxa" revision="896df7dfbf79187a688621f8dd5c6680786d65d7" upstream="rk3399-box-7.1">
 <copyfile dest="buildspec.mk" src="buildspec-rk3399-box.mk"/>
 <copyfile dest="build.sh" src="build-rk3399-box.sh"/>
 <copyfile dest="javaenv.sh" src="javaenv.sh"/>
 </project>
-<project name="device-rockchip-common" path="device/rockchip/common" remote="radxa" revision="4844dc927c71a263b9f544f4758fd1d82efd3c0b" upstream="rk3399-box-7.1">
+<project name="device-rockchip-common" path="device/rockchip/common" remote="radxa" revision="de81095d76195a153125b0b86b76d956a95ef1e3" upstream="rk3399-box-7.1">
 <copyfile dest=".classpath" src=".classpath"/>
 <copyfile dest="mkimage.sh" src="mkimage.sh"/>
 </project>
-<project name="vendor-rockchip-common" path="vendor/rockchip/common" remote="radxa" revision="f45a05f95cf0e53b7d65fdd4ee58f6391fb31753" upstream="rk3399-box-7.1"/>
+<project name="vendor-rockchip-common" path="vendor/rockchip/common" remote="radxa" revision="0b94758422b6ad1c767aad36e25135f0a28aaffa" upstream="rk3399-box-7.1"/>
 
-<project groups="pdk-cw-fs,pdk-fs" remote="radxa" name="frameworks-base" path="frameworks/base" revision="bd783b4e8279762e1650ff038b4590784cf30254" upstream="rk3399-box-7.1"/>
+<project groups="pdk-cw-fs,pdk-fs" remote="radxa" name="frameworks-base" path="frameworks/base" revision="24c9266041ce2fc97ed87ea9051fc3dd5f12f186" upstream="rk3399-box-7.1"/>
 <project groups="pdk" remote="radxa" name="frameworks-native" path="frameworks/native" revision="8cf141039b23c90a783e27b74799a1997bf469a8" upstream="rk3399-box-7.1"/>
 <project name="external-wlan_loader" path="external/wlan_loader" remote="radxa" revision="e2322f583b1697413807868144732753c3928081" upstream="rk3399-box-7.1"/>
 <project name="u-boot" path="u-boot" remote="radxa" revision="c17331df81d16becf08a356d35d359de8bc08c28" upstream="stable-4.4-android"/>
@@ -27,5 +27,7 @@
 <!-- add -->
 <project name="rkbin"  path="rkbin"  remote="radxa" revision="21756f5b5a108fb9d4fd1ffcdb819474892d937f" upstream="rk3399-box-7.1"/>
 <project name="hardware-rockchip-audio" path="hardware/rockchip/audio" remote="radxa" revision="da9fe6501591e2b295355083a3d3f82cfd9f605a" upstream="rk3399-box-7.1"/>
+<project groups="pdk" remote="radxa" name="system-vold" path="system/vold" revision="ec24bcb38cf4042239768acec7a3f37d54b96e89" upstream="rk3399-box-7.1"/>
+<project groups="pdk" remote="radxa" name="system-bt" path="system/bt" revision="f952d36c8b7e4adbce2ab669560705a1e5c29444" upstream="rk3399-box-7.1"/>
 
 </manifest>
